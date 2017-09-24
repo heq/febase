@@ -1,0 +1,59 @@
+.width-100 { width: 100%; }
+.width-90 { width: 90%; }
+.width-80 { width: 80%; }
+.width-75 { width: 75%; }
+.width-67 { width: 66,67%; }
+.width-50 { width: 50%; }
+.width-33 { width: 33,33%; }
+.width-25 { width: 25%; }
+.width-20 { width: 20%; }
+.width-10 { width: 10%; }
+
+/* etc:
+  @include col(5,12);
+  @include col(7,12);
+  ->
+  .col-5-12 { width: 41.66667%; }
+  .col-7-12 { width: 58.33333%; }
+*/
+@mixin col($col, $sum, $padding: 0) {
+  col-#{$col}-#{$sum} {
+    width: percentage($col / $sum);
+    @include box-sizing(border-box);
+    padding: $padding;
+  }
+}
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+/* etc:
+  @include generate-row-cols(12, 960px, 10px);
+  ->
+  .row-12-960 .col-1 {...}
+  .row-12-960 .col-2 {...}
+  ...
+  .row-12-960 .col-12 {...}
+*/
+@mixin generate-row-cols($cols, $width, $gap: 10px) {
+  $col-value: $width / $cols;
+
+  .row-#{$cols}-#{strip-units($width)} {
+    @for $i from 1 through $cols {
+      .col-#{$i} {
+        width: $col-value * $i;
+      }
+    }
+    .col {
+      padding-right: $gap;
+      padding-left: $gap;
+    }
+    .col:first-child {
+      padding-left: 0;
+    }
+    .col:last-child {
+      padding-right: 0;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+$menuButtonH: 60px;
+$menuButtonW: 60px;
+
+.menu-button {
+  height: $menuButtonH;
+  width: $menuButtonW;
+  padding-left: 10px;
+}
+.menu-icon {
+  line-height: $menuButtonH;
+  font-size: 36px;
+}
+.top-menu {
+  background-color: #655;
+}
+.animation-container.content {
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #333;
+  z-index: 9010;
+  @include transition(transform 125ms ease);
+}
+
+.content-shade {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0, 0.7);
+  z-index: 9004;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  width: 300px;
+  background-color: #544;
+  z-index: 9010;
+  @include transition(transform 125ms ease);
+}
+
+.content-container {
+  padding: 80px 10px 10px;
+}
+
+.side-menu-open {
+  .side-menu {
+    @include translate(300px);
+  }
+  .content-shade {
+    display: block;
+  }
+}
+
+.top-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}

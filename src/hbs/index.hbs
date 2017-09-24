@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{> head}}
+</head>
+<body>
+  <div class="page-wrap flex-parent">
+    <div id="content" class="content flex-item fill-area flex-item-grow">
+      {{> top-menu}}
+      {{> header}}
+      <div class="flex-item-grow">
+        {{> content}}
+      </div>
+      {{> footer}}
+      <div id="content-shade" class="content-shade"></div>
+    </div>
+    <div id="side-menu" class="animation-container side-menu">
+      {{> side-menu}}
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

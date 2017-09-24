@@ -1,0 +1,35 @@
+// Colors
+$black: #111;
+$white: #fafafa;
+$grey: #1b1b1b;
+$grey-light: lighten($grey, 10%);
+$twitter: #55acee;
+$facebook: #3b579d;
+$youtube: #cd201f;
+
+// Color helpers
+$highlight: hotpink;
+$highlight2: #42a;
+$max-content-width: 800px;
+
+// Breakpoints
+$tiny: 340px;
+$small: 420px;
+$medium: 560px;
+$large: 755px;
+$big: 900px;
+$fullsize: 1024px;
+
+// Fonts
+$gentium: 'Gentium Basic', serif;
+$kaushan: 'Kaushan Script', cursive;
+$mate: 'Mate', serif;
+$permanent: 'Permanent Marker', cursive;
+$playfare: 'Playfair Display', serif;
+$default-font-color: $white;
+$header-font: $permanent;
+$basic-font: $gentium;
+
+// Assets
+//image-base-path
+$ibp: 'dist/images/';

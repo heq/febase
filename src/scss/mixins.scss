@@ -1,0 +1,207 @@
+// keyframes mixin
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// grayscale      ex: filter: grayscale(100%);
+// sepia          ex: filter: sepia(100%);
+// saturate       ex: filter: saturate(0%);
+// hue-rotate     ex: filter: hue-rotate(45deg);
+// invert         ex: filter: invert(100%);
+// brightness     ex: filter: brightness(15%);
+// contrast       ex: filter: contrast(200%);
+// blur           ex: filter: blur(2px);
+
+@mixin filter($var) {
+	filter: $var;
+}
+
+@mixin text-shadow($horizOffset, $vertOffset, $blur, $color) {
+    text-shadow: $horizOffset $vertOffset $blur $color;
+}
+@mixin box-shadow ($string) {
+	box-shadow: $string;
+}
+
+@mixin drop-shadow ($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+	-webkit-box-shadow:	$x $y $blur $spread rgba(0, 0, 0, $alpha);
+	-moz-box-shadow:	$x $y $blur $spread rgba(0, 0, 0, $alpha);
+	box-shadow:		$x $y $blur $spread rgba(0, 0, 0, $alpha);
+}@mixin glow ($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+	-webkit-box-shadow: $x $y $blur $spread rgba(255, 255, 255, $alpha);
+	-moz-box-shadow:    $x $y $blur $spread rgba(255, 255, 255, $alpha);
+	box-shadow:         $x $y $blur $spread rgba(255, 255, 255, $alpha);
+}
+@mixin inner-shadow ($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+	-webkit-box-shadow: inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+	-moz-box-shadow:    inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+	box-shadow:         inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+}
+@mixin inner-dodge ($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+	-webkit-box-shadow: inset $x $y $blur $spread rgba(255, 255, 255, $alpha);
+	-moz-box-shadow:    inset $x $y $blur $spread rgba(255, 255, 255, $alpha);
+	box-shadow:         inset $x $y $blur $spread rgba(255, 255, 255, $alpha);
+}
+
+@mixin box-sizing ($type: border-box) {
+	-webkit-box-sizing: $type;
+	-moz-box-sizing:    $type;
+	box-sizing:         $type;
+}
+
+@mixin border-radius ($radius: 5px) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius:    $radius;
+	border-radius:         $radius;
+
+	-moz-background-clip:    padding;
+	-webkit-background-clip: padding-box;
+	background-clip:         padding-box;
+}
+@mixin border-radiuses ($topright: 0, $bottomright: 0, $bottomleft: 0, $topleft: 0) {
+	-webkit-border-top-right-radius:    $topright;
+	-webkit-border-bottom-right-radius: $bottomright;
+	-webkit-border-bottom-left-radius:  $bottomleft;
+	-webkit-border-top-left-radius:     $topleft;
+
+	-moz-border-radius-topright:        $topright;
+	-moz-border-radius-bottomright:     $bottomright;
+	-moz-border-radius-bottomleft:      $bottomleft;
+	-moz-border-radius-topleft:         $topleft;
+
+	border-top-right-radius:            $topright;
+	border-bottom-right-radius:         $bottomright;
+	border-bottom-left-radius:          $bottomleft;
+	border-top-left-radius:             $topleft;
+
+	-moz-background-clip:    padding;
+	-webkit-background-clip: padding-box;
+	background-clip:         padding-box;
+}
+
+@mixin opacity ($opacity: 0.5) {
+	-webkit-opacity: 	$opacity;
+	-moz-opacity: 		$opacity;
+	opacity: 		$opacity;
+}
+
+@mixin gradient($from-color, $to-color) {
+    //background-color: mix($from-color, $to-color); /* Fallback */
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from-color), to($to-color));
+    background-image: -webkit-linear-gradient(top, $from-color, $to-color);
+    background-image:    -moz-linear-gradient(top, $from-color, $to-color);
+    background-image:     -ms-linear-gradient(top, $from-color, $to-color);
+    background-image:      -o-linear-gradient(top, $from-color, $to-color);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$from-color}', EndColorStr='#{$to-color}')";
+}
+@mixin horizontal-gradient($from-color: #eee, $to-color: white) {
+ 	//background-color: mix($from-color, $to-color); /* Fallback */
+	background-image: -webkit-gradient(linear, left top, right top, from($from-color), to($to-color));
+    background-image: -webkit-linear-gradient(left, $from-color, $to-color);
+    background-image:    -moz-linear-gradient(left, $from-color, $to-color);
+    background-image:     -ms-linear-gradient(left, $from-color, $to-color);
+    background-image:      -o-linear-gradient(left, $from-color, $to-color);
+}
+@mixin horizontal-gradient-percent($from-color: #eee, $between-color: #f0f0f0, $percent: 50%, $to-color: white) {
+ 	//background-color: mix($from-color, $to-color); /* Fallback */
+	background-image: -webkit-gradient(linear, left top, right top, $from-color 0%, $between-color $percent, $to-color 100%);
+    background-image: -webkit-linear-gradient(left, $from-color 0%, $between-color $percent, $to-color 100%);
+    background-image:    -moz-linear-gradient(left, $from-color 0%, $between-color $percent, $to-color 100%);
+    background-image:     -ms-linear-gradient(left, $from-color 0%, $between-color $percent, $to-color 100%);
+    background-image:      -o-linear-gradient(left, $from-color 0%, $between-color $percent, $to-color 100%);
+}
+/*@mixin radial-gradient($from-color: #eee, $to-color: white) {
+ 	//background-color: mix($from-color, $to-color); *//* Fallback *//*
+	background-image: -webkit-gradient(radial, center center, right top, from($from-color), to($to-color));
+    background-image: -webkit-radial-gradient(left, $from-color, $to-color);
+    background-image:    -moz-radial-gradient(left, $from-color, $to-color);
+    background-image:     -ms-radial-gradient(left, $from-color, $to-color);
+    background-image:      -o-radial-gradient(left, $from-color, $to-color);
+}*/
+
+@mixin radial-gradient($from: #000, $from-percent: 0%, $to: #fff, $to-percent: 100%) {
+  background: -moz-radial-gradient(center top, ellipse, $from $from-percent, $to $to-percent);
+  background: -webkit-radial-gradient(center top, ellipse, $from $from-percent, $to $to-percent);
+  background: -o-radial-gradient(center top, ellipse, $from $from-percent, $to $to-percent);
+  background: -ms-radial-gradient(center top, ellipse, $from $from-percent, $to $to-percent);
+  background: radial-gradient(center top, ellipse, $from $from-percent, $to $to-percent);
+}
+
+@mixin animation ($string) {
+	-webkit-animation: $string;
+	-moz-animation:    $string;
+	-ms-animation:     $string;
+}
+@mixin animation2 ($string1, $string2) {
+	-webkit-animation: $string1, $string2;
+	-moz-animation:    $string1, $string2;
+	-ms-animation:     $string1, $string2;
+}
+
+@mixin transition ($transition) {
+	-webkit-transition: $transition;
+	-moz-transition:    $transition;
+	-ms-transition:     $transition;
+	-o-transition:      $transition;
+}
+@mixin transform($string){
+	-webkit-transform: 	 $string;
+	-moz-transform: 	 $string;
+	-ms-transform: 		 $string;
+	-o-transform: 		 $string;
+}
+@mixin scale ($factor) {
+	-webkit-transform: scale($factor);
+	-moz-transform: 	 scale($factor);
+	-ms-transform: 		 scale($factor);
+	-o-transform: 		 scale($factor);
+}
+@mixin rotate ($deg) {
+	-webkit-transform: rotate($deg);
+	-moz-transform: 	 rotate($deg);
+	-ms-transform: 		 rotate($deg);
+	-o-transform: 		 rotate($deg);
+}
+@mixin skew ($deg, $deg2) {
+	-webkit-transform:       skew($deg, $deg2);
+	-moz-transform: 	 skew($deg, $deg2);
+	-ms-transform: 		 skew($deg, $deg2);
+	-o-transform: 		 skew($deg, $deg2);
+}
+@mixin translate ($x, $y:0) {
+	-webkit-transform:       translate($x, $y);
+	-moz-transform: 	 translate($x, $y);
+	-ms-transform: 		 translate($x, $y);
+	-o-transform: 		 translate($x, $y);
+}
+@mixin translate3d ($x, $y: 0, $z: 0) {
+	-webkit-transform:       translate3d($x, $y, $z);
+	-moz-transform: 	 translate3d($x, $y, $z);
+	-ms-transform: 		 translate3d($x, $y, $z);
+	-o-transform: 		 translate3d($x, $y, $z);
+}
+@mixin perspective ($value: 1000) {
+	-webkit-perspective: 	$value;
+	-moz-perspective: 	$value;
+	-ms-perspective: 	$value;
+	perspective: 		$value;
+}
+@mixin transform-origin ($x:center, $y:center) {
+	-webkit-transform-origin: $x $y;
+	-moz-transform-origin:    $x $y;
+	-ms-transform-origin:     $x $y;
+	-o-transform-origin:      $x $y;
+}
+
+// Clearfix.
+@mixin clearfix {
+  &:before, &:after{
+    display: table;
+    content: "";
+  }
+  &:after{
+    clear: both;
+  }
+}

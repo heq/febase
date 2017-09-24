@@ -1,0 +1,9 @@
+footer {
+  margin: 40px 0 20px;
+}
+.footer-text {
+  @include text-tiny($white);
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}

@@ -1,0 +1,104 @@
+@mixin h1($color: $default-font-color) {
+  font-family: $header-font;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 3.5rem;
+
+  color: $color;
+  margin-bottom: 20px;
+}
+@mixin h2($color: $default-font-color) {
+  font-family: $header-font;
+  font-weight: 500;
+  font-size: 2.5rem;
+  line-height: 3rem;
+
+  color: $color;
+  margin-bottom: 16px;
+}
+@mixin h3($color: $default-font-color) {
+  font-family: $header-font;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 2.5rem;
+
+  color: $color;
+  margin-bottom: 12px;
+}
+@mixin h4($color: $default-font-color) {
+  font-family: $header-font;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 2rem;
+
+  color: $color;
+  margin-bottom: 8px;
+}
+@mixin h5($color: $default-font-color) {
+  font-family: $header-font;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+
+  color: $color;
+  margin-bottom: 8px;
+}
+
+@mixin text-large($color: $default-font-color) {
+  font-family: $basic-font;
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+
+  color: $color;
+}
+
+@mixin text-normal($color: $default-font-color) {
+  font-family: $basic-font;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.4rem;
+
+  color: $color;
+}
+
+@mixin text-small($color: $default-font-color) {
+  font-family: $basic-font;
+  font-weight: 300;
+  font-size: .9rem;
+  line-height: 1.2rem;
+
+  color: $color;
+}
+
+@mixin text-tiny($color: $default-font-color) {
+  font-family: $basic-font;
+  font-weight: 300;
+  font-size: .6rem;
+  line-height: .8rem;
+
+  color: $color;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
